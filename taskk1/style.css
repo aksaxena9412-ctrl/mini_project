@@ -1,0 +1,319 @@
+/* ==========================================
+   1. CSS VARIABLES (DESIGN TOKENS)
+   ========================================== */
+:root {
+  /* Color Palette Specifications */
+  --bg-main: #F8FAFC;
+  --primary: #4F46E5;
+  --primary-hover: #4338CA;
+  --heading: #0F172A;
+  --body: #475569;
+  --card-bg: #FFFFFF;
+  --border: #E2E8F0;
+
+  /* Layout Specifications */
+  --max-width: 1200px;
+  --padding-horizontal: 24px;
+}
+
+/* ==========================================
+   2. GLOBAL RESETS & TYPOGRAPHY
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--body);
+  font-size: 16px; /* Specification: Body 16px */
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==========================================
+   3. REUSABLE CONTAINER CLASS
+   ========================================== */
+/* Constrains the content to max-width 1200px and centers it on wide screens */
+.container {
+  max-width: var(--max-width); /* Max width: 1200px */
+  margin-left: auto;           /* Horizontal center technique */
+  margin-right: auto;
+  padding-left: var(--padding-horizontal);  /* Horizontal padding: 24px */
+  padding-right: var(--padding-horizontal);
+}
+
+/* ==========================================
+   4. NAVIGATION BAR (FLEXBOX)
+   ========================================== */
+.navbar-wrapper {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+}
+
+.navbar {
+  display: flex;                /* Navbar display: flex */
+  justify-content: space-between; /* Navbar justify-between */
+  align-items: center;
+  height: 72px;                 /* Height: 72px */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--heading);
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;              /* Navigation: 14px */
+  font-weight: 500;             /* Font-medium */
+  color: var(--body);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-login {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--body);
+}
+
+.mobile-menu-btn {
+  display: none;                /* Hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--heading);
+}
+
+.mobile-menu-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==========================================
+   5. BUTTON COMPONENTS
+   ========================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);       /* Primary: #4F46E5 */
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover); /* Hover: #4338CA */
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--heading);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: #F1F5F9;
+}
+
+/* ==========================================
+   6. HERO SECTION
+   ========================================== */
+.hero-section {
+  min-height: 520px;            /* Hero minimum height: 520px */
+  display: flex;                /* Vertically centered alignment */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;            /* Navbar -> Hero gap: 80px */
+}
+
+.hero-content {
+  max-width: 650px;             /* Text width specification: 650px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  background-color: #EEF2FF;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.hero-title {
+  font-size: 48px;              /* H1 desktop: 48px */
+  font-weight: 700;             /* font-bold */
+  line-height: 1.1;             /* line-height: 1.1 */
+  color: var(--heading);        /* Heading: #0F172A */
+  margin-bottom: 20px;          /* Heading -> paragraph: 20px */
+}
+
+.hero-subtitle {
+  font-size: 18px;              /* Subtitle: 18px */
+  line-height: 1.6;             /* line-height 1.6 */
+  color: var(--body);
+  margin-bottom: 32px;          /* Paragraph -> buttons: 32px */
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* ==========================================
+   7. FEATURES SECTION (GRID)
+   ========================================== */
+.features-section {
+  margin-top: 80px;            /* Spacing from Hero */
+  margin-bottom: 80px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;          /* Section -> cards: 48px */
+}
+
+.section-title {
+  font-size: 32px;              /* Section heading: 32px */
+  font-weight: 700;             /* font-bold */
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--body);
+}
+
+/* GRID LAYOUT FOR CARDS[cite: 1, 2] */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Desktop: 3 columns */
+  gap: 24px;                            /* Card gap: 24px */
+}
+
+.feature-card {
+  background-color: var(--card-bg); /* Background: #FFFFFF */
+  border: 1px solid var(--border);   /* Border: #E2E8F0 */
+  border-radius: 12px;
+  padding: 24px;                    /* Card padding: 24px */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #EEF2FF;
+  color: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.card-title {
+  font-size: 20px;              /* Card heading: 20px */
+  font-weight: 600;             /* font-semibold */
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+
+.card-body {
+  font-size: 16px;              /* Body: 16px */
+  color: var(--body);
+  line-height: 1.5;
+}
+
+/* ==========================================
+   8. RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+   ========================================== */
+
+/* TABLET MODE (640px to 1023px) */
+@media (max-width: 1023px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+  }
+}
+
+/* MOBILE MODE (< 640px) */
+@media (max-width: 639px) {
+  /* Navigation Hide/Show */
+  .nav-links, .nav-actions {
+    display: none;             /* Hide desktop links on mobile */
+  }
+
+  .mobile-menu-btn {
+    display: block;            /* Show hamburger menu button */
+  }
+
+  /* Hero Typography & Layout Changes */
+  .hero-title {
+    font-size: 36px;           /* H1 Mobile: 36px */
+  }
+
+  .hero-buttons {
+    flex-direction: column;    /* Buttons stacked on mobile */
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  /* Grid Layout Change */
+  .features-grid {
+    grid-template-columns: 1fr; /* Mobile: 1 column */
+  }
+}
